@@ -14,7 +14,6 @@ int main(void)
 		/**
 		 * writes number  to stdout
 		 */
-		if (n < 10)
 		putchar(n + '0');
 		/**
 		 * adds comma and space and writes to stdout
