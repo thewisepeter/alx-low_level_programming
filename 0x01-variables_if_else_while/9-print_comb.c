@@ -11,16 +11,11 @@ int main(void)
 
 	for (n = 0; n < 10; n++)
 	{
-		/**
-		 * writes number  to stdout
-		 */
 		putchar(n + '0');
-		/**
-		 * adds comma and space and writes to stdout
-		 */
 		if (n < 9)
-		putchar (',');
-		putchar (' ');
+			putchar(',');
+			putchar(' ');
 	}
+	putchar('\n');
 	return (0);
 }
