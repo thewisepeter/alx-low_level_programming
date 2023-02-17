@@ -16,5 +16,5 @@ int main(void)
 	 *writing the string to stdout
 	 */
 	puts(my_string);
-	return 0;
+	return (0);
 }
