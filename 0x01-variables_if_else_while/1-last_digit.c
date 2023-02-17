@@ -1,4 +1,4 @@
-#include <stdlib.h>
+i#include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 
@@ -19,7 +19,7 @@ int main(void)
 	 * find last digit by dividing by ten and recording the remainder
 	 * write result to stdout
 	 */
-	last_digit = (n % 10);
+	last_digit = (&n % 10);
 	if (last_digit > 5)
 		printf("%d %d and is greater than 5", last_digit, n);
 	if (last_digit == 0)
