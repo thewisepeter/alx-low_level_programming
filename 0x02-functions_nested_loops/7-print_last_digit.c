@@ -14,8 +14,10 @@ int print_last_digit(int r)
 	 * display remainder
 	 */
 	last_digit = (r % 10);
+	if (last_digit < 0)
+	{
+	last_digit = (last_digit * -1);
+	}
 	_putchar (last_digit + '0');
-	int _abs(int b)
-	b = _abs (last_digit);
-	return (b);
+	return (last_digit);
 }
