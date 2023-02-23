@@ -27,7 +27,7 @@ int main(void)
 		{
 			printf("%d", c);
 		}
-		if (x != 100)
+		if (c != 100)
 		{
 			printf(" ");
 		}
