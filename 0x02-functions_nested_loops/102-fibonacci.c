@@ -20,6 +20,7 @@ int main(void)
 		{
 			b = b + a;
 			a = b - a;
+			printf(", %ld", b);
 		}
 		++i;
 	}
