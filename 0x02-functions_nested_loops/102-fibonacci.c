@@ -9,7 +9,6 @@ int main(void)
 {
 	int i, n;
 	long a = 1, b = 2;
-	int sum  = a + b;
 
 	while (i < 50)
 	{
