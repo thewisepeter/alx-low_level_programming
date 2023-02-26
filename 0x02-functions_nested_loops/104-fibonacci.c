@@ -15,7 +15,7 @@ int main(void)
 	printf("%ld, ", first);
 	printf("%ld, ", second);
 
-	while (total <= 98)
+	while (total < 98)
 	{
 		if (total == 98)
 		{
