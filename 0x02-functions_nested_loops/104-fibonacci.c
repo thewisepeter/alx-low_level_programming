@@ -1,34 +1,29 @@
 #include <stdio.h>
 
 /**
- * main - entry point fibo
- *
- * Return: 0 (success)
+ * main - entry point
+ * prints the first 50 Fibonacci numbers
+ * Return: 0
  */
 int main(void)
 {
-	int total  = 3;
+	int i = 0;
+	long a = 1, b = 2;
 
-	long int first = 1, second = 2;
-	long int fb = first + second;
-
-	printf("%ld, ", first);
-	printf("%ld, ", second);
-
-	while (total < 98)
+	while (i < 98)
 	{
-		if (total == 98)
-		{
-			printf("%ld\n", fb);
-		}
+		if (i == 0)
+			printf("%ld", a);
+		else if (i == 1)
+			printf(", %ld", b);
 		else
 		{
-			printf("%ld, ", fb);
+			b = b + a;
+			a = b - a;
+			printf(", %ld", b);
 		}
-		first = second;
-		second = fb;
-		fb = first + second;
-		total++;
+		++i;
 	}
+	printf("\n");
 	return (0);
 }
