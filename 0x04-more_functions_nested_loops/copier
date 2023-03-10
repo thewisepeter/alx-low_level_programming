@@ -1,0 +1,5 @@
+#!/bin/bash
+#this is a copier to oxo9 static libs
+echo filename
+read varname
+cp $varname /root/alx-low_level_programming/0x09-static_libraries/
