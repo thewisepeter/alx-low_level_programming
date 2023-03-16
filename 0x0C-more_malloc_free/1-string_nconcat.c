@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 /**
- * 1-string_nconcat.c - function that concatenates two strings
+ * string_nconcat - function that concatenates two strings
  * @s1: string
  * @s2: string
  * @n: number of bytes from s2 to be copied
- * 
+ *
  * Return: Pointer (success) or NULL (failure)
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
@@ -17,51 +17,30 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	i = 0;
 	while (s1[i] != '\0')
 		i++;
-	
+
 	j = 0;
 	while (s2[j] != '\0')
 		j++;
 
-	str = malloc(sizeof(char) * i);
-		if (str == NULL)
-		{
-			return (NULL);
-		}
+	if (n < j)
+		str = malloc(sizeof(char) * (i + n + 1));
+	else
+		str = malloc(sizeof(char) * (i + j + 1));
+
+	if (str == NULL)
+		return (NULL);
 
 	for (p = 0; p < i ; p++)
-	{
 		str[p] = s1[p];
-	}
 
-	if ( n < j)
-	{
-		str = realloc(str, sizeof(char) * (i + n + 1));
-	
-		if (str == NULL)
-		{
-			return (NULL);
-		}
-
-		for (p = 0 ; p < n ; p++)
-		{
-			str[p + i] = s2[p];
-		}
-		str[p + 1 + i] = '\0';
-	}
-	
 	if (n >= j)
-	{
-		str = realloc(str, sizeof(char) * (i + j + 1));
-
-		if (str == NULL)
-		{
-			return (NULL);
-		}
-
 		for (p = 0 ; p <= j ; p++)
-		{
 			str[p + i] = s2[p];
-		}
+	if (n < j)
+	{
+		for (p = 0 ; p < n ; p++)
+			str[p + i] = s2[p];
+		str[p + i + 1] = '\0';
 	}
-	return (str);
+		return (str);
 }
