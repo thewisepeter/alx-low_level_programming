@@ -35,17 +35,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (str == NULL)
 		exit(EXIT_FAILURE);
 
-	for (p = 0; p < i ; p++)
-		str[p] = s1[p];
+	for (i = 0 ; s1[i] ; p++)
+		str[i] = s1[i];
 
-	if (n >= j)
-		for (p = 0 ; p <= j ; p++)
-			str[p + i] = s2[p];
-	if (n < j)
-	{
-		for (p = 0 ; p < n ; p++)
-			str[p + i] = s2[p];
-		str[p + i + 1] = '\0';
-	}
-		return (str);
+	for (j = 0 ; s2[j] ; p++)
+		str[i] = s2[j];
+	str[i] = '\0';
+	return (str);
 }
