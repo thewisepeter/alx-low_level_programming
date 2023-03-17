@@ -29,7 +29,7 @@ char *_memset(char *s, char b, unsigned int n)
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int mem_size;
-	char *pit;
+	void *pit;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
@@ -42,6 +42,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	_memset(pit, 48, mem_size);
+	_memset(pit, 0, mem_size);
 	return (pit);
 }
