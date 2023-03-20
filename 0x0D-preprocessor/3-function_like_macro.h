@@ -1,13 +1,6 @@
-#ifndef MAIN_H
-#define MAIN_H
-#include "main.h"
-#endif
+#ifndef FUNCTION_LIKE_MACRO_H
+#define FUNCTION_LIKE_MACRO_H
 
-#ifndef STDLIB_H
-#define STDLIB_H
-#include <stdlib.h>
-#endif
-
-#ifndef ABS(x)
 #define ABS(x) ((x) < 0 ? -(x) : (x))
+
 #endif
