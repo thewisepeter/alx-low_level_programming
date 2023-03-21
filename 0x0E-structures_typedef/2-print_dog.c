@@ -1,5 +1,5 @@
-#include "dog.h"
 #include <stdio.h>
+#include "dog.h"
 
 /**
  * print_dog - function that prints a dog's name, age and owner's name
