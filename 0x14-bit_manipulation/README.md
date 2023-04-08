@@ -1,0 +1,3 @@
+0x14. C - Bit manipulation
+
+Bit manipulation is the process of manipulating individual bits in a binary sequence. It involves performing logical and arithmetic operations on bit patterns to achieve certain results. Bit manipulation can be used to optimize code by reducing memory usage, improving performance, and increasing the efficiency of algorithms. Some common operations include shifting bits left or right, setting and clearing bits, and performing bitwise logical operations such as AND, OR, and XOR. Bit manipulation is often used in embedded systems, cryptography, and computer graphics, among other fields.
