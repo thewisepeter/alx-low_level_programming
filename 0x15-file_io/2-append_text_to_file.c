@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * create_file - function that creates a file
+ * append_text_to_file - function that creates a file
  * @filename: name of file to be manipulated
  * @text_content: text to be added into file
  *
@@ -15,7 +15,7 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (!filename)
 		return (-1);
 
-	fd = open(filename, O_WRONLY);
+	fd = open(filename, O_WRONLY | O_APPEND);
 	if (fd == -1)
 		return (-1);
 
