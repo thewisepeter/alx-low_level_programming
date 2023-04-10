@@ -22,16 +22,28 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	fd = open(filename, O_RDONLY);
 	if (fd == -1)
+	{
+		free(buff);
 		return (0);
+	}
 
 	n = read(fd, buff, letters);
 	if (n == -1)
+	{
+		free(buff);
+		close(fd);
 		return (0);
+	}
 
-	m = write(1, buff, letters);
-	if (m == -1)
+	m = write(1, (const void *)buff, n);
+	if (m == -1 || m != n)
+	{
+		free(buff);
+		close(fd);
 		return (0);
+	}
 
 	free(buff);
+	close(fd);
 	return (n);
 }
