@@ -58,20 +58,20 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	buff = create_buff(argv[1]);
+	buff = create_buff(argv[2]);
 
 	fd_from = open(argv[1], O_RDONLY);
 	read_size = read(fd_from, buff, 1024);
 	fd_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 
-	while ((read_size = read(fd_from, buff, 1024)) > 0)
-	{
+	do {
 		if (fd_from == -1 || read_size == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			free(buff);
 			exit(98);
 		}
+
 		write_size = write(fd_to, buff, read_size);
 		if (fd_to == -1 || write_size == -1)
 		{
@@ -79,8 +79,11 @@ int main(int argc, char *argv[])
 			free(buff);
 			exit(99);
 		}
+
+		read_size = read(fd_from, buff, 1024);
 		fd_to = open(argv[2], O_WRONLY | O_APPEND);
-	}
+
+	} while (read_size > 0);
 
 	free(buff);
 	close_file(fd_from);
