@@ -131,7 +131,7 @@ void print_data(unsigned char *elf_identity)
 			printf("2's complement, big endian\n");
 			break;
 		default:
-			printf("<unknown: %x>\n", elf_identity[EI_CLASS]);
+			printf("<unknown: %x>\n", elf_identity[EI_DATA]);
 
 	}
 }
