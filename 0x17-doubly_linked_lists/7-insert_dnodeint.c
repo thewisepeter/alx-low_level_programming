@@ -1,7 +1,8 @@
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - function that inserts a new node at a given position
+ * insert_dnodeint_at_index - function that inserts
+ * a new node at a given position
  * @h: DLL
  * @idx: index at which new_node is to be inserted
  * @n: integer to be inserted into new_node
@@ -15,7 +16,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (idx == 0)
 		new_node = add_dnodeint(h, n);
-	
+
 	current = *h;
 	i = 1;
 	while (current)
