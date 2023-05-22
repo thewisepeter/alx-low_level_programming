@@ -2,7 +2,7 @@
 
 int rand()
 {
-	int count = -1;
+	static int count = -1;
 
 	count++;
 	switch (count)
