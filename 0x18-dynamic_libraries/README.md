@@ -1,7 +1,3 @@
-0x09. C - Static libraries
-
-Static libraries in Linux/C are collections of pre-compiled object code that are linked directly into an executable at compile time. They are created by archiving multiple object files together using the ar command. Static libraries contain functions, variables, or other code that can be reused across multiple programs. When a program is compiled and linked with a static library, the entire library code is included in the resulting executable. This means that the program becomes self-contained and doesn't depend on any external libraries at runtime. Static libraries are denoted by the .a extension, and they provide a convenient way to distribute and share code among different projects.
-
 0x18. C - Dynamic libraries
 
 Dynamic libraries in Linux/C, also known as shared libraries, are separate files containing compiled code that can be loaded and linked with a program at runtime. Dynamic libraries allow multiple programs to share the same code, reducing redundancy and improving efficiency. Shared libraries have the advantage of being dynamically linked, meaning that the library code is loaded into memory only when needed by a program. This allows for efficient memory usage and the ability to update or replace shared libraries without recompiling the entire program. Dynamic libraries in Linux/C are denoted by the .so (shared object) extension. They are managed by the dynamic linker/loader, which resolves symbols and handles the runtime linking process.
