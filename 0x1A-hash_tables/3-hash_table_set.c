@@ -8,55 +8,55 @@
  *
  * Return: 1 (success) 0 (fail)
  */
-int hash_table_set(hash_table_t *ht, const char *key, const char *value)
-{
-	char *value_copy;
-	const unsigned char *key_1 = (const unsigned char *)key;
-	unsigned long int i = key_index(key_1, ht->size);
-	hash_node_t *node;
+int hash_table_set(hash_table_t *ht, const char *key, const char *value) {
+    unsigned long int index;
+    hash_node_t *current;
+    hash_node_t *new_node;
+    char *key_copy;
+    char *value_copy;
 
-	if (ht == NULL || key == NULL || *key == '\0' || value == NULL)
-		return (0);
+    if (ht == NULL || key == NULL || *key == '\0') {
+        return 0;
+    }
 
-	value_copy = strdup(value);
-	if (!value_copy)
-		return (0);
+    index = key_index((const unsigned char *)key, ht->size);
 
-	for (; ht->array[i]; i++)
-	{
-		if (strcmp(ht->array[i]->key, key) == 0)
-		{
-			free(ht->array[i]->value);
-			ht->array[i]->value = value_copy;
-			return (1);
-		}
-	}
+    current = ht->array[index];
+    while (current != NULL) {
+        if (strcmp(current->key, key) == 0) {
+            free(current->value);
+            current->value = strdup(value);
+            if (current->value == NULL) {
+                return 0;
+            }
+            return 1;
+        }
+        current = current->next;
+    }
 
-	node = malloc(sizeof(hash_node_t));
-	if (!node)
-	{
-		free(value_copy);
-		return (0);
-	}
-	node->key = strdup(key);
-	if (!node->key)
-	{
-		free(value_copy);
-		free(node);
-		return (0);
-	}
-	node->value = value_copy;
-	node->next = NULL;
+    new_node = malloc(sizeof(hash_node_t));
+    if (new_node == NULL) {
+        return 0;
+    }
 
-	if (ht->array[i] == NULL)
-	{
-		ht->array[i] = node;
-	}
-	else
-	{
-		node->next = ht->array[i];
-		ht->array[i] = node;
-	}
+    key_copy = strdup(key);
+    if (key_copy == NULL) {
+        free(new_node);
+        return 0;
+    }
 
-	return (1);
+    value_copy = strdup(value);
+    if (value_copy == NULL) {
+        free(key_copy);
+        free(new_node);
+        return 0;
+    }
+
+    new_node->key = key_copy;
+    new_node->value = value_copy;
+    new_node->next = ht->array[index];
+    ht->array[index] = new_node;
+
+    return 1;
 }
+
