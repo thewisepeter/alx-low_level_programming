@@ -1,0 +1,9 @@
+# Makefile that compiles c code
+
+CC = gcc
+SRC = *.c
+OBJ = $(SRC:%.c=%.o)
+NAME = school
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
