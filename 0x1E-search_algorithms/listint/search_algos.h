@@ -2,7 +2,6 @@
 #define MAIN_H
 
 #include <stdio.h>
-#include <math.h>
 
 /**
  * struct listint_s - singly linked list
